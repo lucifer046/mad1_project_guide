@@ -32,7 +32,7 @@
                 <div class="col-md-3">
                     <label class="form-label">Status</label>
                     <select name="status" class="form-select">
-                        {% for s in ['Open', 'Closed', 'Completed'] %}
+                        {% for s in ['Open', 'Closed', 'Ongoing', 'Completed'] %}
                             <option value="{{ s }}" {{ 'selected' if trek.status == s }}>{{ s }}</option>
                         {% endfor %}
                     </select>

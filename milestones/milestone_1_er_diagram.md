@@ -34,7 +34,7 @@ An ER (Entity-Relationship) diagram shows:
 | available_slots | Integer | Max bookings allowed |
 | start_date | Date | |
 | end_date | Date | |
-| status | String | 'Pending','Approved','Open','Closed','Completed' |
+| status | String | 'Pending','Approved','Open','Closed','Ongoing','Completed' |
 | assigned_staff_id | Integer | Foreign Key → User.id |
 | description | Text | Optional |
 

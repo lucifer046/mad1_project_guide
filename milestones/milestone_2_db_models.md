@@ -63,7 +63,7 @@ class Trek(db.Model):
     available_slots = db.Column(db.Integer, nullable=False)
     start_date = db.Column(db.Date, nullable=False)
     end_date = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(20), default='Pending')  # Pending/Approved/Open/Closed/Completed
+    status = db.Column(db.String(20), default='Pending')  # Pending/Approved/Open/Closed/Ongoing/Completed
     assigned_staff_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     description = db.Column(db.Text, default='')
     
@@ -112,7 +112,7 @@ class StaffProfile(db.Model):
 # app.py
 from flask import Flask
 from config import Config
-from models import db, User, StaffProfile
+from models import db, User, StaffProfile, Trek, Booking
 from werkzeug.security import generate_password_hash
 
 def create_app():

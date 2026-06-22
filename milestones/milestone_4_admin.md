@@ -230,9 +230,14 @@ def blacklist_user(user_id):
 @admin_required
 def admin_search():
     q = request.args.get('q', '')
-    treks = Trek.query.filter(Trek.name.contains(q)).all()
-    users = User.query.filter(User.name.contains(q), User.role == 'user').all()
-    staff = User.query.filter(User.name.contains(q), User.role == 'staff').all()
+    if q.isdigit():
+        treks = Trek.query.filter((Trek.name.contains(q)) | (Trek.id == int(q))).all()
+        users = User.query.filter((User.role == 'user') & ((User.name.contains(q)) | (User.id == int(q)))).all()
+        staff = User.query.filter((User.role == 'staff') & ((User.name.contains(q)) | (User.id == int(q)))).all()
+    else:
+        treks = Trek.query.filter(Trek.name.contains(q)).all()
+        users = User.query.filter(User.name.contains(q), User.role == 'user').all()
+        staff = User.query.filter(User.name.contains(q), User.role == 'staff').all()
     return render_template('admin/search_results.html', q=q, treks=treks, users=users, staff=staff)
 ```
 
