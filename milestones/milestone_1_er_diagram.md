@@ -30,15 +30,16 @@ An ER (Entity-Relationship) diagram shows:
 | name | String | Trek name |
 | location | String | e.g. "Manali" |
 | difficulty | String | 'Easy', 'Moderate', 'Hard' |
-| duration_days | Integer | Number of days |
-| available_slots | Integer | Max bookings allowed |
+| stay_duration | Integer | Number of days |
+| max_slots | Integer | Max bookings allowed |
+| available_slot | Integer | Current available slots |
 | start_date | Date | |
 | end_date | Date | |
-| status | String | 'Pending','Approved','Open','Closed','Ongoing','Completed' |
+| status | String | 'pending', 'approved', 'open', 'closed', 'completed' |
 | assigned_staff_id | Integer | Foreign Key → User.id |
 | description | Text | Optional |
 
-#### Table 3: `Booking`
+#### Table 3: `Booking` (Table name: `bookings`)
 | Column | Type | Notes |
 |--------|------|-------|
 | id | Integer | Primary Key, Auto |
@@ -47,13 +48,15 @@ An ER (Entity-Relationship) diagram shows:
 | booking_date | DateTime | Auto |
 | status | String | 'Booked', 'Cancelled', 'Completed' |
 
-#### Table 4: `StaffProfile` (Optional but Recommended)
+*Note: Unique constraint on (user_id, trek_id).*
+
+#### Table 4: `Staff` (Table name: `staff`)
 | Column | Type | Notes |
 |--------|------|-------|
 | id | Integer | Primary Key |
-| user_id | Integer | Foreign Key → User.id |
+| user_id | Integer | Foreign Key → User.id, Unique |
 | contact | String | Phone number |
-| experience | String | Experience details |
+| experience | Text | Experience details |
 | approval_status | String | 'Pending', 'Approved', 'Rejected' |
 
 ### Relationships
@@ -61,7 +64,7 @@ An ER (Entity-Relationship) diagram shows:
 User (staff) ─────< Trek         [One staff can have many treks]
 User (trekker) ───< Booking       [One user can have many bookings]
 Trek ──────────────< Booking      [One trek can have many bookings]
-User (staff) ──────── StaffProfile [One-to-one]
+User (staff) ──────── Staff       [One-to-one]
 ```
 
 ### How to Draw ER Diagram

@@ -14,7 +14,7 @@ Please follow the guides in chronological order:
 1. **[Milestone 0: Setup](milestones/milestone_0_setup.md)**
    - Initial environment setup, Python packages, project directory structure.
 2. **[Milestone 1: Design ER Diagram](milestones/milestone_1_er_diagram.md)**
-   - Database entities (User, Trek, Booking, StaffProfile), column mappings, and relationships.
+   - Database entities (User, Trek, Booking, Staff), column mappings, and relationships.
 3. **[Milestone 2: Database Models](milestones/milestone_2_db_models.md)**
    - Configuration setup, implementing SQLAlchemy models (`models.py`), basic `app.py`, testing DB creation.
 4. **[Milestone 3: Authentication](milestones/milestone_3_auth.md)**

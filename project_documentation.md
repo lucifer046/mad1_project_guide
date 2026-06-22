@@ -34,7 +34,7 @@ We need four primary tables:
 1. `User`: Stores all people in the system (Admin, Staff, Trekkers).
 2. `Trek`: Stores details about the trekking events.
 3. `Booking`: The bridge table mapping users to the treks they booked.
-4. `StaffProfile`: Extra details specifically for staff members (like approval status).
+4. `Staff`: Extra details specifically for staff members (like approval status).
 
 ### Detailed Model Breakdown
 
@@ -49,7 +49,7 @@ This table holds login credentials and role information for everyone.
 This table holds the catalog of treks.
 
 *   **Primary Key:** `id`
-*   **Fields:** `name`, `location`, `difficulty`, `duration_days`, `available_slots`, `status` (Pending/Open/Closed/Completed), `start_date`, `end_date`.
+*   **Fields:** `name`, `location`, `difficulty`, `stay_duration`, `max_slots`, `available_slot`, `status` (pending/approved/open/closed/completed), `start_date`, `end_date`.
 *   **Foreign Key:** `assigned_staff_id`. This points back to the `User` table (specifically a user with the 'staff' role).
 
 #### 3. The `Booking` Model
@@ -60,7 +60,7 @@ This is a **transactional table**. It records the event of a Trekker booking a T
 *   **Foreign Key 2:** `trek_id` (Points to the Trek).
 *   **Fields:** `booking_date`, `status` (Booked/Cancelled/Completed).
 
-#### 4. The `StaffProfile` Model
+#### 4. The `Staff` Model
 Since staff members have extra data that regular users don't need (like experience and approval status), we separate it to keep the `User` table clean.
 
 *   **Primary Key:** `id`
@@ -79,9 +79,9 @@ Here is how SQLAlchemy links them together logically:
    *   *Logic:* A User can book many Treks. A Trek can have many Users booked.
    *   *Implementation:* The `Booking` table acts as the middleman (association table). A User has many Bookings, and a Trek has many Bookings.
 
-3. **One-to-One: User to StaffProfile**
+3. **One-to-One: User to Staff**
    *   *Logic:* One User (if they are staff) has exactly one Staff Profile.
-   *   *Implementation:* `StaffProfile` has `user_id`. The `User` model has `staff_profile = db.relationship('StaffProfile', backref='user', uselist=False)`.
+   *   *Implementation:* `Staff` has `user_id`. The `User` model has `staff_profile = db.relationship('Staff', backref='user', uselist=False)`.
 
 ---
 
@@ -104,9 +104,9 @@ When the app launches for the first time, the database is generated. The pre-def
 
 ### Workflow 2: Staff Registration & Approval
 1.  A person registers as "Trek Staff".
-2.  They are added to the `User` table and a `StaffProfile` is created with a status of 'Pending'.
+2.  They are added to the `User` table and a `Staff` profile is created with a status of 'Pending'.
 3.  *Crucially*, they **cannot** access the staff dashboard yet.
-4.  The Admin logs in, sees the pending staff request, and clicks "Approve". The `StaffProfile` status becomes 'Approved'. Now the staff can access their dashboard.
+4.  The Admin logs in, sees the pending staff request, and clicks "Approve". The `Staff` profile status becomes 'Approved'. Now the staff can access their dashboard.
 
 ### Workflow 3: Trek Creation & Assignment
 1.  The Admin creates a new Trek route (Name, Location, Slots, etc.). The trek's initial status is likely 'Pending' or 'Open'.
@@ -117,7 +117,7 @@ When the app launches for the first time, the database is generated. The pre-def
 2.  The User browses treks that have the status 'Open'.
 3.  The User books a trek. The system checks:
     *   *Validation:* Is the trek 'Open'?
-    *   *Validation:* Are `available_slots` > booked slots?
+    *   *Validation:* Is `available_slot` > 0?
     *   *Validation:* Has this user already booked this exact trek?
 4.  If valid, a new row is added to the `Booking` table.
 
