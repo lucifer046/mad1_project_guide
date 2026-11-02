@@ -1,48 +1,56 @@
-# MAD-1 Trekking Management App — Complete Roadmap
-### IITM BS | May 2026 Term | Flask + Jinja2 + SQLite
+# MAD-1 Project Guides (IITM BS)
+### Flask + Jinja2 + SQLite + Bootstrap 5
+
+Welcome to the comprehensive project guides repository for MAD-1. This repository contains complete architectural blueprints, milestone-wise breakdowns, and copy-paste-ready code for college projects.
 
 ---
 
-This is the primary index and index instructions for the MAD-1 Trekking Management App project guide. The roadmap is split into milestone-wise files for better readability and progression.
+## 📂 Available Project Guides
+
+### 1. [Trekking Management Application](Trekking_Management_Application/)
+A complete web application guide for managing treks, guides, bookings, and traveler histories.
+* **[Trekking Milestones](Trekking_Management_Application/)**:
+  1. [Milestone 0: Setup](Trekking_Management_Application/milestone_0_setup.md)
+  2. [Milestone 1: Design ER Diagram](Trekking_Management_Application/milestone_1_er_diagram.md)
+  3. [Milestone 2: Database Models](Trekking_Management_Application/milestone_2_db_models.md)
+  4. [Milestone 3: Authentication](Trekking_Management_Application/milestone_3_auth.md)
+  5. [Milestone 4: Admin Dashboard](Trekking_Management_Application/milestone_4_admin.md)
+  6. [Milestone 5: Trek Staff Dashboard](Trekking_Management_Application/milestone_5_staff.md)
+  7. [Milestone 6: User Dashboard & Booking](Trekking_Management_Application/milestone_6_user.md)
+  8. [Milestone 7: Booking History & Status Tracking](Trekking_Management_Application/milestone_7_history.md)
+  9. [Milestone 8: GitHub Setup & Remote Push](Trekking_Management_Application/milestone_8_github.md)
+  10. [Milestone 9: Optional Features](Trekking_Management_Application/milestone_9_optional.md)
+  11. [Milestone 10: Testing Checklist](Trekking_Management_Application/milestone_10_testing.md)
+  12. [Milestone 11: Final Submission](Trekking_Management_Application/milestone_11_submission.md)
+* **Reference Docs**:
+  * [Final Folder Structure](Trekking_Management_Application/final_folder_structure.md)
+  * [How to Run the App](Trekking_Management_Application/how_to_run.md)
+  * [Common Errors and Fixes](Trekking_Management_Application/common_errors.md)
+  * [Milestone Commit Messages](Trekking_Management_Application/commit_messages.md)
 
 ---
 
-## 🗺️ Navigation Map (Milestones)
-
-Please follow the guides in chronological order:
-
-1. **[Milestone 0: Setup](milestones/milestone_0_setup.md)**
-   - Initial environment setup, Python packages, project directory structure.
-2. **[Milestone 1: Design ER Diagram](milestones/milestone_1_er_diagram.md)**
-   - Database entities (User, Trek, Booking, Staff), column mappings, and relationships.
-3. **[Milestone 2: Database Models](milestones/milestone_2_db_models.md)**
-   - Configuration setup, implementing SQLAlchemy models (`models.py`), basic `app.py`, testing DB creation.
-4. **[Milestone 3: Authentication](milestones/milestone_3_auth.md)**
-   - Templates for login/register, auth routes, access decorators (`login_required`, `admin_required`, `staff_required`).
-5. **[Milestone 4: Admin Dashboard](milestones/milestone_4_admin.md)**
-   - Admin routes, statistics, CRUD operations for trek management, staff approval/blacklisting.
-6. **[Milestone 5: Trek Staff Dashboard](milestones/milestone_5_staff.md)**
-   - Staff routes, slots & status updates, list of registered trekkers.
-7. **[Milestone 6: User Dashboard & Booking](milestones/milestone_6_user.md)**
-   - Browsing open treks, filters, booking logic, cancellation routes.
-8. **[Milestone 7: Booking History & Status Tracking](milestones/milestone_7_history.md)**
-   - Checking past bookings, status badges.
-9. **[Milestone 8: GitHub Setup & Remote Push](milestones/milestone_8_github.md)**
-   - Setting up repository, adding collaborators, commit workflows.
-10. **[Milestone 9: Optional Features](milestones/milestone_9_optional.md)**
-    - Flask-Login integration, Chart.js implementation, JSON API endpoints.
-11. **[Milestone 10: Testing Checklist](milestones/milestone_10_testing.md)**
-    - Detailed checkboxes to manually verify auth, admin, staff, and user flows.
-12. **[Milestone 11: Final Submission](milestones/milestone_11_submission.md)**
-    - Generating checksums, directory structuring, zip guidelines, report formatting, video recording rules.
-
----
-
-## 🛠️ General Reference Docs
-- **[Final Folder Structure](milestones/final_folder_structure.md)**
-- **[How to Run the App](milestones/how_to_run.md)**
-- **[Common Errors and Fixes](milestones/common_errors.md)**
-- **[Milestone Commit Messages](milestones/commit_messages.md)**
+### 2. [Examination Management Portal](Examination_Management_Portal/)
+A comprehensive guide for coordinating examinations, candidate registrations, evaluation slots, examiner grading with rubrics, and published results.
+* **[Examination Portal Index](Examination_Management_Portal/Readme.md)**
+* **[Milestones & Code](Examination_Management_Portal/)**:
+  1. [Milestone 0: Setup & Environment](Examination_Management_Portal/milestone_0_setup.md)
+  2. [Milestone 1: Design ER Diagram & Architecture](Examination_Management_Portal/milestone_1_er_diagram.md)
+  3. [Milestone 2: Database Models & Skeleton](Examination_Management_Portal/milestone_2_db_models.md)
+  4. [Milestone 3: Authentication & Role-Based Access](Examination_Management_Portal/milestone_3_auth.md)
+  5. [Milestone 4: Admin Dashboard & Management](Examination_Management_Portal/milestone_4_admin.md)
+  6. [Milestone 5: Examiner Dashboard & Slot Management](Examination_Management_Portal/milestone_5_examiner.md)
+  7. [Milestone 6: Student Dashboard & Exam Booking](Examination_Management_Portal/milestone_6_student.md)
+  8. [Milestone 7: Booking History & Evaluation Tracking](Examination_Management_Portal/milestone_7_history.md)
+  9. [Milestone 8: GitHub Setup & Collaboration](Examination_Management_Portal/milestone_8_github.md)
+  10. [Milestone 9: Optional Features & APIs](Examination_Management_Portal/milestone_9_optional.md)
+  11. [Milestone 10: Comprehensive Testing Checklist](Examination_Management_Portal/milestone_10_testing.md)
+  12. [Milestone 11: Final Submission & Viva Preparation](Examination_Management_Portal/milestone_11_submission.md)
+* **Reference Docs**:
+  * [Final Folder Structure](Examination_Management_Portal/final_folder_structure.md)
+  * [How to Run the App](Examination_Management_Portal/how_to_run.md)
+  * [Common Errors and Fixes](Examination_Management_Portal/common_errors.md)
+  * [Milestone Commit Messages](Examination_Management_Portal/commit_messages.md)
 
 ---
 
